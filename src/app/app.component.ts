@@ -3,26 +3,28 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
+import { TransactionsPage } from '../pages/transactions/transactions';
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MoneyMap {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = TransactionsPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Transacciones', component: TransactionsPage, icon: 'cash'},
+      { title: 'Sobre nosotros', component: AboutPage, icon: 'information-circle'},
+      { title: 'Contacto', component: ContactPage , icon: 'call'}
     ];
 
   }

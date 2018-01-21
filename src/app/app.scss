@@ -14,3 +14,78 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.toolbar-background{
+  background-image: linear-gradient(to left, rgb(0, 190, 228) 0%, rgb(0, 145, 210) 100%);
+}
+.bar-buttons,
+.toolbar-title,
+.bar-button-default-md:hover:not(.disable-hover){
+  color: white;
+}
+
+.button-inner:hover{
+  color: #eeeeee;
+}
+
+.header::after{
+  background-image: none;
+  box-shadow: inset 0px 4px 8px -3px rgba(17, 17, 17, .06);
+}
+
+.header-background-image{
+  background-image: url("../assets/imgs/16.jpg");
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  background-blend-mode: luminosity;
+}
+
+.header-background-image::before{
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background: #00bee4;
+  background: -webkit-gradient(linear, right top, left top, from(#00bee4), to(#0091d2));
+  background: linear-gradient(to left, #00bee4 0%, #0091d2 100%);
+}
+
+.button-default {
+  background: linear-gradient(to left, #00bee4 0%, #0091d2 100%) !important;
+  border-radius: 64px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-md .item-block .item-inner{
+  border-bottom: none;
+}
+
+ion-icon[item-start]{
+  color: rgb(0, 192, 232);
+  font-size: 20px !important;
+  margin-bottom: 10px;
+  margin-top: 18px !important;
+}
+
+button ion-label{
+  font-size: 14px;
+}
+
+.item ion-icon[item-start] + .item-inner{
+  margin-left: 10px;
+}
+
+
+
