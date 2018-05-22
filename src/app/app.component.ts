@@ -10,6 +10,7 @@ import { TransactionsPage } from '../pages/transactions/transactions';
 @Component({
   templateUrl: 'app.html'
 })
+
 export class MoneyMap {
   @ViewChild(Nav) nav: Nav;
 

@@ -24,6 +24,22 @@
   color: white;
 }
 
+ion-navbar.toolbar{
+  height: 60px;
+}
+
+.toolbar-content{
+  margin-right: 56px;
+}
+
+ion-title{
+  text-align: center;
+  text-transform: uppercase;
+  .toolbar-title{
+    font-size: 1.75rem;
+  }
+}
+
 .button-inner:hover{
   color: #eeeeee;
 }
