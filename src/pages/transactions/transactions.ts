@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { db } from '../../database';
+import { AddingPage } from '../adding/adding';
 
 /**
  * Generated class for the TransactionsPage page.
@@ -18,13 +19,21 @@ import { db } from '../../database';
 export class TransactionsPage {
 
   title: string;
+  transactions: any;
+  pushPage: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.title = "Money map"
+    this.pushPage = AddingPage;
+    this.transactions = [];
+  }
+  ionViewWillEnter(){
+    this.loadTransactions()
   }
 
-  ionViewDidLoad() {
-    db.save({title: "primera transacción", amount: 0});
+  loadTransactions(){
+    db.getAll().then((results)=>{
+      this.transactions = results;
+    })
   }
-
 }

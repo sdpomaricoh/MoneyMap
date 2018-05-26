@@ -17,5 +17,22 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-list-header>
+      Transaciones
+    </ion-list-header>
+    <ion-item *ngFor="let transaction of transactions">
+      <ion-icon name="pricetag" item-start></ion-icon>
+      <ion-label>
+        <h2>$ {{transaction.amount}}</h2>
+        <h3>{{transaction.title}}</h3>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="transactions.length == 0">
+      <ion-label>Sin transacciones para mostrar</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab [navPush]="pushPage"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

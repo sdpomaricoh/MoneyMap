@@ -3,19 +3,24 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MoneyMap } from './app.component';
-import { AboutPage } from '../pages/about/about';
+import { MapPage } from '../pages/map/map';
 import { ContactPage } from '../pages/contact/contact';
 import { TransactionsPage } from '../pages/transactions/transactions';
+import { AddingPage } from '../pages/adding/adding';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Geolocation } from '@ionic-native/geolocation';
+import { GeolocationService } from '../services/geolocation.service';
+
 @NgModule({
   declarations: [
     MoneyMap,
-    AboutPage,
+    MapPage,
     ContactPage,
-    TransactionsPage
+    TransactionsPage,
+    AddingPage
   ],
   imports: [
     BrowserModule,
@@ -24,13 +29,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MoneyMap,
-    AboutPage,
+    MapPage,
     ContactPage,
-    TransactionsPage
+    TransactionsPage,
+    AddingPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    GeolocationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
