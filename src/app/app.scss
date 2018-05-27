@@ -206,3 +206,7 @@ ion-fab button{
 .item-md.item-input.input-has-focus .item-inner{
   border-bottom-color:  #0090d0 !important;
 }
+
+.md ion-menu[type=overlay] .menu-inner{
+  box-shadow: none;
+}
