@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
 
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, Marker, LatLng, MarkerOptions } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, Marker, LatLng, MarkerOptions, MarkerIcon } from '@ionic-native/google-maps';
 import { GeolocationService } from '../../services/geolocation.service';
 import { db } from '../../database';
 
@@ -90,10 +90,21 @@ export class MapPage {
   loadTransactionMarkers(transactions){
     this.transactions.forEach(transaction => {
 
+      if(!transaction.hasLocation()) return;
+
       let position: LatLng = new LatLng(transaction.lat, transaction.lng);
+
+      let icon: MarkerIcon = {
+        url: transaction.getImage(),
+        size: {
+          width: 128,
+          height: 95
+        }
+      };
 
       let options: MarkerOptions = {
         position: position,
+        icon: icon,
         title: transaction.title
       }
 

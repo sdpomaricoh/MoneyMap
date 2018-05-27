@@ -31,12 +31,12 @@ export class MoneyMapAppDB extends Dexie {
 }
 
 export interface ITransaction {
-		id?: number;
-		title: string;
-		amount: number;
-		lat: number;
-		lng: number;
-		imageURL: string;
+		id?: Number;
+		title: String;
+		amount: Number;
+		lat: Number;
+		lng: Number;
+		imageURL: String;
 }
 
 
@@ -45,12 +45,12 @@ export interface ITransaction {
  */
 export class Transaction implements ITransaction {
 
-		id?: number;
-		title: string;
-		amount: number;
-		lat: number;
-		lng: number;
-		imageURL: string;
+		id?: Number;
+		title: String;
+		amount: Number;
+		lat: Number;
+		lng: Number;
+		imageURL: String;
 
 		constructor(title: string, amount: number, lat?: number, lng?: number, imageURL?: string, id?: number) {
 				this.title = title;
@@ -69,6 +69,16 @@ export class Transaction implements ITransaction {
     setCoords(coords){
       this.lat = coords.latitude;
 			this.lng = coords.longitude;
+    }
+
+    hasLocation(): Boolean {
+      if(this.lat && this.lng) return true;
+      return false;
+    }
+
+    getImage(): String {
+      if(this.imageURL) return this.imageURL;
+      return 'blue'
     }
 
 

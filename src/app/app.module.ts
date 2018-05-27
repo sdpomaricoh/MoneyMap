@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { GeolocationService } from '../services/geolocation.service';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { GeolocationService } from '../services/geolocation.service';
     StatusBar,
     SplashScreen,
     Geolocation,
+    Camera,
     GeolocationService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

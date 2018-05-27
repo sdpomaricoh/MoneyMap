@@ -210,3 +210,25 @@ ion-fab button{
 .md ion-menu[type=overlay] .menu-inner{
   box-shadow: none;
 }
+
+.button-outline-md{
+  border-width: 1px;
+  border-style: solid;
+  border-color: #0090d0;
+  color: #0090d0;
+  height: 3.6rem !important;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  .button-inner:hover{
+    color: #0090d0;
+  }
+}
+
+.label-md {
+  margin: 13px 0px 13px 0;
+}
+
+.item-md.item-block .item-inner {
+  padding-right: 0;
+}

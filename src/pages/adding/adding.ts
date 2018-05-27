@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { GeolocationService } from '../../services/geolocation.service';
 import { Transaction, db } from '../../database';
@@ -21,14 +22,35 @@ export class AddingPage {
   transaction: Transaction;
   showGeolocation: Boolean = true;
   shouldSend: Boolean = false;
+  photo: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocator: GeolocationService, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocator: GeolocationService, public toastCtrl: ToastController, private camera: Camera) {
     this.transaction = new Transaction('', null);
+    this.photo = null;
     this.getLocation()
   }
 
+  getPhoto(){
+    const options: CameraOptions = {
+      quality: 50,
+      sourceType: this.camera.PictureSourceType.CAMERA,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      allowEdit: false,
+      saveToPhotoAlbum: false,
+      targetHeight: 625,
+      targetWidth: 625
+    }
 
-  ionViewDidLoad() {
+    this.camera.getPicture(options).then((photo) => {
+
+      let base64Image = 'data:image/jpeg;base64,' + photo;
+      this.photo = base64Image;
+      this.transaction.imageURL = this.photo;
+
+    }).catch((err) => {
+      console.log(err);
+    })
 
   }
 
