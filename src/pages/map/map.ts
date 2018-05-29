@@ -3,6 +3,7 @@ import { NavController, ToastController } from 'ionic-angular';
 
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, Marker, LatLng, MarkerOptions, MarkerIcon } from '@ionic-native/google-maps';
 import { GeolocationService } from '../../services/geolocation.service';
+import { TransactionService } from '../../services/transaction.service';
 import { db } from '../../database';
 
 
@@ -12,13 +13,11 @@ import { db } from '../../database';
 })
 export class MapPage {
 
-  title: String;
   map: GoogleMap;
   coords: any;
   transactions: any;
 
-  constructor(public navCtrl: NavController, public geolocator: GeolocationService, public toastCtrl: ToastController) {
-    this.title = "Mapa";
+  constructor(public navCtrl: NavController, public geolocator: GeolocationService, public toastCtrl: ToastController, public transactionService: TransactionService) {
     this.transactions = [];
   }
 
@@ -81,7 +80,7 @@ export class MapPage {
   }
 
   loadMarkers(){
-    db.getAll().then((results)=>{
+    this.transactionService.all().then((results)=>{
       this.transactions = results;
       this.loadTransactionMarkers(this.transactions)
     })

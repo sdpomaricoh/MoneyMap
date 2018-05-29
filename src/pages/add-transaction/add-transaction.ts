@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { GeolocationService } from '../../services/geolocation.service';
+import { WalletService } from '../../services/wallet.service';
 import { Transaction, db } from '../../database';
 
 /**
@@ -12,20 +13,19 @@ import { Transaction, db } from '../../database';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-adding',
-  templateUrl: 'adding.html',
+  templateUrl: 'add-transaction.html',
 })
-export class AddingPage {
+export class AddTransactionPage {
 
   transaction: Transaction;
   showGeolocation: Boolean = true;
   shouldSend: Boolean = false;
   photo: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocator: GeolocationService, public toastCtrl: ToastController, private camera: Camera) {
-    this.transaction = new Transaction('', null);
+  constructor(public navCtrl: NavController, public navParams: NavParams, public geolocator: GeolocationService, public toastCtrl: ToastController, private camera: Camera, public walletService: WalletService) {
+    this.transaction = this.cleanTransaction();
     this.photo = null;
     this.getLocation()
   }
@@ -81,8 +81,8 @@ export class AddingPage {
   save(transaction){
     if(this.shouldSend){
       if(transaction.title !== "" && transaction.amount !== ""){
-        db.save(transaction).then((result)=>{
-          this.transaction = new Transaction('',null);
+        db.saveTransaction(transaction).then((result)=>{
+          this.transaction = this.cleanTransaction();
           this.navCtrl.pop()
         })
       }else{
@@ -95,6 +95,12 @@ export class AddingPage {
         toast.present();
       }
     }
+  }
+
+  cleanTransaction(){
+    let transaction = new Transaction('',null);
+    transaction.walletID = this.walletService.getId()
+    return transaction;
   }
 
 }

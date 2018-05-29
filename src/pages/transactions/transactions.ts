@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { db } from '../../database';
-import { AddingPage } from '../adding/adding';
+import { AddTransactionPage } from '../add-transaction/add-transaction';
+import { TransactionService } from '../../services/transaction.service';
+import { WalletService } from '../../services/wallet.service';
 
 /**
  * Generated class for the TransactionsPage page.
@@ -11,7 +13,6 @@ import { AddingPage } from '../adding/adding';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-transactions',
   templateUrl: 'transactions.html',
@@ -22,17 +23,18 @@ export class TransactionsPage {
   transactions: any;
   pushPage: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public transactionService: TransactionService, public walletService: WalletService) {
     this.title = "Money map"
-    this.pushPage = AddingPage;
+    this.pushPage = AddTransactionPage;
     this.transactions = [];
   }
   ionViewWillEnter(){
+    if(this.walletService.empty()) this.walletService.validateFirtsWallet();
     this.loadTransactions()
   }
 
   loadTransactions(){
-    db.getAll().then((results)=>{
+    this.transactionService.all().then((results)=>{
       this.transactions = results;
     })
   }

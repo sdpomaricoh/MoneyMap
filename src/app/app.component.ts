@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MapPage } from '../pages/map/map';
-import { ContactPage } from '../pages/contact/contact';
+import { WalletsPage } from '../pages/wallets/wallets';
 import { TransactionsPage } from '../pages/transactions/transactions';
 
 @Component({
@@ -24,8 +24,8 @@ export class MoneyMap {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Transacciones', component: TransactionsPage, icon: 'cash'},
-      { title: 'Mapa', component: MapPage, icon: 'map'},
-      { title: 'Contacto', component: ContactPage , icon: 'call'}
+      { title: 'Carteras', component: WalletsPage , icon: 'card'},
+      { title: 'Mapa', component: MapPage, icon: 'map'}
     ];
 
   }
