@@ -17,6 +17,7 @@ import { GeolocationService } from '../services/geolocation.service';
 import { WalletService } from '../services/wallet.service';
 import { TransactionService } from '../services/transaction.service';
 import { Camera } from '@ionic-native/camera';
+import { Toast } from '@ionic-native/toast';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { Camera } from '@ionic-native/camera';
     SplashScreen,
     Geolocation,
     Camera,
+    Toast,
     GeolocationService,
     WalletService,
     TransactionService,

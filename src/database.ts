@@ -47,6 +47,17 @@ export class MoneyMapAppDB extends Dexie {
     return this.wallet.orderBy('id').limit(1).first();
   }
 
+  removeWallet(id) {
+    return this.operation.delete(id);
+  }
+
+  findWallet(id){
+    return this.wallet.get(id);
+  }
+
+  updateWallet(id, amount: number){
+    return this.wallet.update(id,{ amount: amount});
+  }
 }
 
 export interface ITransaction {

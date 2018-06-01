@@ -1,3 +1,13 @@
 page-transactions {
-
+  .amount{
+    .card-header-md, .card-content-md{
+      color: #fff;
+    }
+    .card-content-md{
+      font-size: 2rem;
+    }
+    background-image: linear-gradient(to right, #00bee4 0%, #0091d2 100%);
+    color: white;
+    font-weight: bold;
+  }
 }

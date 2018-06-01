@@ -4,7 +4,6 @@ import { NavController, ToastController } from 'ionic-angular';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, Marker, LatLng, MarkerOptions, MarkerIcon } from '@ionic-native/google-maps';
 import { GeolocationService } from '../../services/geolocation.service';
 import { TransactionService } from '../../services/transaction.service';
-import { db } from '../../database';
 
 
 @Component({

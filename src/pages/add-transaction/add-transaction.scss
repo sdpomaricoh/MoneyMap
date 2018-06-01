@@ -6,4 +6,34 @@ page-adding {
     margin: 0 auto;
     width: 100%;
   }
+  ion-item.red{
+    .item-inner{
+      border-bottom-color: #F44336 !important;
+    }
+    ion-label.label-md{
+      color: #F44336 !important;
+    }
+  }
+
+  ion-item.red.item-md.item-input.input-has-focus .item-inner{
+    border-bottom-color: #F44336 !important;
+  }
+  ion-item.green{
+    .item-inner{
+      border-bottom-color:  #4CAF50 !important;
+    }
+    ion-label.label-md{
+      color:  #4CAF50 !important;
+    }
+  }
+  ion-item.green.item-md.item-input.input-has-focus .item-inner{
+    border-bottom-color: #4CAF50 !important;
+  }
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+    box-shadow: none !important;
+  }
+  .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner{
+    box-shadow: none !important;
+  }
 }
+//background-color:

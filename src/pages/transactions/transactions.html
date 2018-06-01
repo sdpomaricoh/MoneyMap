@@ -17,6 +17,14 @@
 
 
 <ion-content padding>
+  <ion-card class="amount">
+    <ion-card-header>
+      {{wallet.name}}
+    </ion-card-header>
+    <ion-card-content>
+      $ {{wallet.amount}}
+    </ion-card-content>
+  </ion-card>
   <ion-list>
     <ion-list-header>
       Transaciones

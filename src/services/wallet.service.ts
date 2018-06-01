@@ -16,8 +16,22 @@ export class WalletService {
     return parseInt(localStorage.getItem(StorageKey))
   }
 
+  get(): any{
+    return db.findWallet(this.getId());
+  }
+
   empty(): Boolean {
     return !localStorage.getItem(StorageKey);
+  }
+
+  update(amount: Number){
+    let findPromise = db.findWallet(this.getId());
+
+    let updatePromise = findPromise.then((wallet) => {
+      db.updateWallet(this.getId(), (+wallet.amount) + (+amount));
+    });
+
+    return Promise.all([findPromise, updatePromise]);
   }
 
   validateFirtsWallet(){
