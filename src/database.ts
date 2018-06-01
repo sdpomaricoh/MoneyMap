@@ -135,12 +135,3 @@ export class Wallet implements IWallet{
 }
 
 export let db = new MoneyMapAppDB()
-
-db.on('populate', () => {
-  db.wallet.add({
-    name: "Cartera Principal",
-    amount: 0
-  }).then((result:any)=>{
-    walletService.setId(result)
-  });
-});

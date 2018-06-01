@@ -12,7 +12,7 @@ export class WalletService {
     localStorage.setItem(StorageKey,walletID)
   }
 
-  getId(): Number{
+  getId(): number{
     return parseInt(localStorage.getItem(StorageKey))
   }
 
@@ -43,7 +43,7 @@ export class WalletService {
             name: "Cartera Principal",
             amount: 0
           }).then((result: any) =>{
-            this.setId(result.id)
+            this.setId(result)
             resolve();
           });
 

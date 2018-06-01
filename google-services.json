@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "823344276926",
+    "firebase_url": "https://money-map-codeo.firebaseio.com",
+    "project_id": "money-map-codeo",
+    "storage_bucket": "money-map-codeo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823344276926:android:8f3f64eac06b29b5",
+        "android_client_info": {
+          "package_name": "co.codeo.moneymap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823344276926-dceusmn1oc618tic71l70nv8fb5lnoej.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "823344276926-dceusmn1oc618tic71l70nv8fb5lnoej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpGiiOvaBL_l8dJpv3HR-NKMtFv1WW21c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
